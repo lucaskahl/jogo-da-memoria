@@ -1,7 +1,8 @@
 const $root = document.querySelector("#root");
 const $memoryCard = document.createElement("article");
-const $memoryCardSide = document.createElement("article");
-const $icon = `
+const $memoryCardFront = document.createElement("article");
+
+const $iconCollab = `
   <img
     src="./img/icon-collabcode.svg"
     alt="Gueio icon"
@@ -10,15 +11,18 @@ const $icon = `
 `;
 
 const $iconPhp = `
-      <div class="side">
-        <img src="./img/icon-php.png" alt="Gueio icon" class="icon" />
-      </div>
+  <img
+    src="./img/icon-php.png"
+    alt="Icon php"
+    class="icon"
+  />
 `;
 
 $memoryCard.classList.add("memory-card");
-$memoryCardSide.classList.add("memory-card", "-active");
-
 $root.insertBefore($memoryCard, null);
-$root.insertBefore($memoryCardSide, null);
-$memoryCard.insertAdjacentHTML("afterbegin", $icon);
-$memoryCardSide.insertAdjacentHTML("afterbegin", $iconPhp);
+
+$memoryCardFront.classList.add("memory-card", "-front");
+$root.insertBefore($memoryCardFront, $memoryCard);
+
+$memoryCard.insertAdjacentHTML("afterbegin", $iconCollab);
+$memoryCardFront.insertAdjacentHTML("afterbegin", $iconPhp);
