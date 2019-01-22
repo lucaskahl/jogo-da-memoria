@@ -1,6 +1,4 @@
-const $root = document.querySelector("#root");
-
-function createCard(type) {
+function createMemoryCard(type) {
   if (type == "back") {
     const $memoryCard = document.createElement("article");
 
@@ -13,7 +11,7 @@ function createCard(type) {
     `;
 
     $memoryCard.classList.add("memory-card");
-    $root.insertBefore($memoryCard, null);
+    $wrapCards.insertBefore($memoryCard, null);
     $memoryCard.insertAdjacentHTML("afterbegin", $iconCollab);
   } else if (type == "front") {
     const $memoryCardFront = document.createElement("article");
@@ -27,17 +25,8 @@ function createCard(type) {
     `;
 
     $memoryCardFront.classList.add("memory-card", "-front");
-    $root.insertBefore($memoryCardFront, null);
+    $wrapCards.insertBefore($memoryCardFront, null);
 
     $memoryCardFront.insertAdjacentHTML("afterbegin", $iconPhp);
   }
 }
-
-createCard("front");
-createCard("back");
-createCard("back");
-createCard("back");
-createCard("back");
-createCard("back");
-createCard("back");
-createCard("back");
