@@ -1,4 +1,4 @@
-function createMemoryCard(type) {
+function createMemoryCard(type, image) {
   if (type == "back") {
     const $memoryCard = document.createElement("article");
 
@@ -18,7 +18,7 @@ function createMemoryCard(type) {
 
     const $iconPhp = `
       <img
-        src="./img/icon-php.png"
+        src="./img/${image}"
         alt="Icon php"
         class="icon"
       />
