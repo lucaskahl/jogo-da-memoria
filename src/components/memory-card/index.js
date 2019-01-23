@@ -1,4 +1,4 @@
-function createMemoryCard(type, image) {
+const createMemoryCard = (type, image) => {
   if (type == "back") {
     const $memoryCard = `
       <article class="memory-card">
@@ -24,8 +24,8 @@ function createMemoryCard(type, image) {
     `;
     return $memoryCard;
   }
-}
+};
 
 function handleClick() {
-  console.log(this);
+  console.log(this, "foi");
 }
