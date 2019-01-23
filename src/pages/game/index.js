@@ -1,17 +1,15 @@
-createMemoryCard("front", "icon-php.png");
-createMemoryCard("back", "icon-collabcode.svg");
+const $root = document.querySelector("#root");
 
-const $card = document.querySelectorAll(".memory-card");
+const $cardsWrapper = createCardsWrapper();
+const $memoryCard = createMemoryCard("front", "icon-php.png");
+const $memoryCardFront = createMemoryCard("back");
 
-$card.forEach(element => {
-  element.addEventListener("click", () => {
-    element.classList.toggle("-front");
-    if (element.classList.contains("-front")) {
-      element.children[0].src = "http://127.0.0.1:5500/img/icon-php.png";
-    } else {
-      element.children[0].src = "http://127.0.0.1:5500/img/icon-collabcode.svg";
-    }
-  });
-});
-
-console.log($card);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFront);
+$root.insertAdjacentElement("beforeend", $cardsWrapper);
