@@ -1,31 +1,14 @@
-const createMemoryCard = (type, image) => {
-  if (type == "back") {
-    const $memoryCard = `
-      <article class="memory-card">
-        <img
-          src="./img/icon-collabcode.svg"
-          alt="Gueio icon"
-          class="icon"
-          onClick="handleClick()"
-        />
-      </article>
-    `;
-    return $memoryCard;
-  } else if (type == "front") {
-    const $memoryCard = `
-      <article class="memory-card -front">
-        <img
-          src="./img/${image}"
-          alt="Icon"
-          class="icon"
-          onClick="handleClick()"
-        />
-      </article>
-    `;
-    return $memoryCard;
-  }
-};
+const createMemoryCard = (src, alt, nameClass) => `
+  <article class="memory-card ${nameClass}">
+    <img
+      src="${src}"
+      alt="${alt}"
+      class="icon"
+      onClick="handleClick()"
+    />
+  </article>
+`;
 
-function handleClick() {
+const handleClick = () => {
   console.log(this, "foi");
-}
+};
