@@ -1,22 +1,35 @@
 const $root = document.querySelector("#root");
-
-const cards = {
-  gueio: ["", "img/icon-collabcode.svg", "Gueio mascote da CollabCode"],
-  c: ["-front", "img/icon-c.png", "Ícone de um livro de C"],
-  javascript: ["-front", "img/icon-js.png", "Ícone de um livro de Javascript"],
-  java: ["-front", "img/icon-java.png", "Ícone de um livro de Java"],
-  php: ["-front", "img/icon-php.png", "Ícone de um livro de Php"]
-};
-
 const $cardsWrapper = createCardsWrapper();
 
-const { gueio, c, javascript, java, php } = cards; // Desestruturação
+const $memoryCard = createMemoryCard({
+  nameClass: "",
+  src: "img/icon-collabcode.svg",
+  alt: "Gueio mascote da CollabCode"
+});
 
-const $memoryCard = createMemoryCard(...gueio);
-const $cardPhp = createMemoryCard(...php);
-const $cardJava = createMemoryCard(...java);
-const $cardJavaScript = createMemoryCard(...javascript);
-const $cardC = createMemoryCard(...c);
+const $cardPhp = createMemoryCard({
+  nameClass: "-front",
+  src: "img/icon-php.png",
+  alt: "Ícone de um livro de Php"
+});
+
+const $cardJava = createMemoryCard({
+  nameClass: "-front",
+  src: "img/icon-java.png",
+  alt: "Ícone de um livro de Java"
+});
+
+const $cardJavaScript = createMemoryCard({
+  nameClass: "-front",
+  src: "img/icon-js.png",
+  alt: "Ícone de um livro de Javascript"
+});
+
+const $cardC = createMemoryCard({
+  nameClass: "-front",
+  src: "img/icon-c.png",
+  alt: "Ícone de um livro de C"
+});
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
