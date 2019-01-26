@@ -48,3 +48,5 @@ const createMemoryCard = ({ nameClass, src, alt }) => {
 const handleClick = () => {
   console.log(this, "foi");
 };
+
+/* Depois será configurado um webpack para importar o js plantão de dúvidas 04*/
