@@ -1,4 +1,4 @@
-const createMemoryCard = ({ nameClass, src, alt }) => {
+const memoryCard = () => {
   const $head = document.querySelector("head");
   const $style = document.createElement("style");
 
@@ -40,13 +40,13 @@ const createMemoryCard = ({ nameClass, src, alt }) => {
 
   $head.insertBefore($style, null);
 
-  return `<article class="memory-card ${nameClass}">
+  return ({ nameClass, src, alt }) => `
+    <article class="memory-card ${nameClass}">
       <img src="${src}" alt="${alt}" class="icon" onClick="handleClick()" />
-    </article>`;
+    </article>
+  `;
 };
 
 const handleClick = () => {
-  console.log(this, "foi");
+  console.log("foi");
 };
-
-/* Depois será configurado um webpack para importar o js plantão de dúvidas 04*/
