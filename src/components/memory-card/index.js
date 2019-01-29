@@ -41,12 +41,22 @@ const memoryCard = () => {
   $head.insertBefore($style, null);
 
   return ({ nameClass, src, alt }) => `
-    <article class="memory-card ${nameClass}">
-      <img src="${src}" alt="${alt}" class="icon" onClick="handleClick()" />
+    <article class="memory-card ${nameClass}" onClick="handleClick(this)">
+      <img src="${src}" alt="${alt}" class="icon" />
     </article>
   `;
 };
 
-const handleClick = () => {
-  console.log("foi");
+const handleClick = $card => {
+  const $image = $card.querySelector("img"); // não pode modificar este valor
+
+  $card.classList.toggle("-front"); // Frente ou atras
+
+  if (!$card.classList.contains("-front")) {
+    $image.src = "img/icon-collabcode.svg";
+    $image.alt = "Icone do gueio mascote CollabCode";
+  } else {
+    $image.src = "img/icon-js.png";
+    $image.alt = "Icone do livro de javascript";
+  }
 };
