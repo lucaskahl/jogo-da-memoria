@@ -57,23 +57,28 @@ const memoryCard = () => {
 
   $head.insertBefore($style, null);
 
-  return ({ nameClass, src, alt }) => `
-    <figure class="memory-card ${nameClass}" onClick="handleClick(this)">
-      <img class="hidden -hide"/>
-      <img
-        src="${src}"
-        alt="${alt}"
-        class="icon"
-      />
-    </figure>
-  `;
+    return ({ src, alt, nameClass }) => `
+        <article class="memory-card ${nameClass}">
+            <img 
+                src="${src}" 
+                alt="${alt}" 
+                class="icon"
+                onClick="handleClick()"
+            />
+        </article>
+    `;
 };
 
-const handleClick = $card => {
-  $card.classList.toggle('-front');
-  let $img = $card.querySelector("img")
-
-  if(!$card.classList.contains('-front')) {
-    $img.classList.toggle("-hide");
-  }
+const handleClick = ($src, $alt) => {
+  const imgElement = window.event.srcElement;
+  if (imgElement.parentElement.classList.contains('-front')) {
+      imgElement.setAttribute('onClick', `handleClick('${imgElement.src}', '${imgElement.alt}')`);
+      imgElement.src = 'img/icon-collabcode.svg';
+      imgElement.alt = 'Gueio collabcode';
+      imgElement.parentElement.classList.toggle('-front');
+  } else {
+      imgElement.src = $src;
+      imgElement.alt = $alt;
+      imgElement.parentElement.classList.toggle('-front');
+  }  
 };

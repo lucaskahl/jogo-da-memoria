@@ -33,8 +33,8 @@ const $cardC = createMemoryCard({
   alt: "Ícone de um livro de C"
 });
 
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
+$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
 $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
 $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
 $cardsWrapper.insertAdjacentHTML("beforeend", $cardJava);
