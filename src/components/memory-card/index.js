@@ -14,9 +14,22 @@ const memoryCard = () => {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     position: relative;
   }
+  
+  .memory-card .hidden {
+    content: "";
+    background: url(img/icon-collabcode.svg);
+    background-size: 100px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
 
   .memory-card.-front {
     background-color: #fff;
+  }
+
+  .memory-card.-front img {
+    background-image: none;
   }
 
   .memory-card.-front::before {
@@ -36,27 +49,31 @@ const memoryCard = () => {
     position: absolute;
     transform: translateY(-10px);
   }
+
+  .memory-card .-hide {
+    opacity: 0;
+  }
   `;
 
   $head.insertBefore($style, null);
 
   return ({ nameClass, src, alt }) => `
-    <article class="memory-card ${nameClass}" onClick="handleClick(this)">
-      <img src="${src}" alt="${alt}" class="icon" />
-    </article>
+    <figure class="memory-card ${nameClass}" onClick="handleClick(this)">
+      <img class="hidden -hide"/>
+      <img
+        src="${src}"
+        alt="${alt}"
+        class="icon"
+      />
+    </figure>
   `;
 };
 
 const handleClick = $card => {
-  const $image = $card.querySelector("img"); // não pode modificar este valor
+  $card.classList.toggle('-front');
+  let $img = $card.querySelector("img")
 
-  $card.classList.toggle("-front"); // Frente ou atras
-
-  if (!$card.classList.contains("-front")) {
-    $image.src = "img/icon-collabcode.svg";
-    $image.alt = "Icone do gueio mascote CollabCode";
-  } else {
-    $image.src = "img/icon-js.png";
-    $image.alt = "Icone do livro de javascript";
+  if(!$card.classList.contains('-front')) {
+    $img.classList.toggle("-hide");
   }
 };
