@@ -15,21 +15,8 @@ const memoryCard = () => {
     position: relative;
   }
   
-  .memory-card .hidden {
-    content: "";
-    background: url(img/icon-collabcode.svg);
-    background-size: 100px;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-  }
-
   .memory-card.-front {
     background-color: #fff;
-  }
-
-  .memory-card.-front img {
-    background-image: none;
   }
 
   .memory-card.-front::before {
@@ -50,14 +37,11 @@ const memoryCard = () => {
     transform: translateY(-10px);
   }
 
-  .memory-card .-hide {
-    opacity: 0;
-  }
   `;
 
   $head.insertBefore($style, null);
 
-    return ({ src, alt, nameClass }) => `
+  return ({ src, alt, nameClass }) => `
         <article class="memory-card ${nameClass}">
             <img 
                 src="${src}" 
@@ -71,14 +55,17 @@ const memoryCard = () => {
 
 const handleClick = ($src, $alt) => {
   const imgElement = window.event.srcElement;
-  if (imgElement.parentElement.classList.contains('-front')) {
-      imgElement.setAttribute('onClick', `handleClick('${imgElement.src}', '${imgElement.alt}')`);
-      imgElement.src = 'img/icon-collabcode.svg';
-      imgElement.alt = 'Gueio collabcode';
-      imgElement.parentElement.classList.toggle('-front');
+  if (imgElement.parentElement.classList.contains("-front")) {
+    imgElement.setAttribute(
+      "onClick",
+      `handleClick('${imgElement.src}', '${imgElement.alt}')`
+    );
+    imgElement.src = "img/icon-collabcode.svg";
+    imgElement.alt = "Gueio collabcode";
+    imgElement.parentElement.classList.toggle("-front");
   } else {
-      imgElement.src = $src;
-      imgElement.alt = $alt;
-      imgElement.parentElement.classList.toggle('-front');
-  }  
+    imgElement.src = $src;
+    imgElement.alt = $alt;
+    imgElement.parentElement.classList.toggle("-front");
+  }
 };
