@@ -80,3 +80,5 @@ const memoryCard = () => {
 
 const handleClick = $component => $component.classList.toggle('-active');
 
+//Teste
+
