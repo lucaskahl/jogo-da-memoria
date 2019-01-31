@@ -78,7 +78,19 @@ const memoryCard = () => {
     `;
 };
 
-const handleClick = $component => $component.classList.toggle('-active');
+const handleClick = $component =>  {
+  
+  $component.classList.toggle('-active');
 
-// aaa github trabalho
-// novamente
+  if($component.classList.contains('-active')) {
+    counter++;
+  }
+
+  if(counter === 2) {
+    let clickedCards = document.querySelectorAll('.-active');
+    setTimeout(() => {
+      clickedCards.forEach(c => c.classList.toggle('-active'))
+    }, 1000)
+    counter = 0;
+  }
+}
