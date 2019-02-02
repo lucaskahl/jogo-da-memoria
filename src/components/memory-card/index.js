@@ -78,41 +78,20 @@ const memoryCard = () => {
     `;
 };
 
-<<<<<<< HEAD
-const handleClick = ($src, $alt) => {
-  const imgElement = window.event.srcElement;
+const handleClick = $component => {
+  $component.classList.toggle("-active");
 
-  if (imgElement.parentElement.classList.contains("-front")) {
-    imgElement.setAttribute(
-      "onClick",
-      `handleClick('${imgElement.src}', '${imgElement.alt}')`
-    );
-    imgElement.src = "img/icon-collabcode.svg";
-    imgElement.alt = "Gueio collabcode";
-    imgElement.parentElement.classList.toggle("-front");
-  } else {
-    imgElement.src = $src;
-    imgElement.alt = $alt;
-    imgElement.parentElement.classList.toggle("-front");
+  if ($component.classList.contains("-active")) {
+    counter++;
+  }
+
+  if (counter === 2) {
+    let clickedCards = document.querySelectorAll(".-active");
+    setTimeout(() => {
+      clickedCards.forEach(c => c.classList.toggle("-active"));
+    }, 1000);
+    counter = 0;
   }
 };
 
 // Aula 29 será realizado a troca para no handleClick receber os cards e comparar
-=======
-const handleClick = $component =>  {
-  
-  $component.classList.toggle('-active');
-
-  if($component.classList.contains('-active')) {
-    counter++;
-  }
-
-  if(counter === 2) {
-    let clickedCards = document.querySelectorAll('.-active');
-    setTimeout(() => {
-      clickedCards.forEach(c => c.classList.toggle('-active'))
-    }, 1000)
-    counter = 0;
-  }
-}
->>>>>>> 9f786d1a106282079c1748879a3219b240f5d81d
