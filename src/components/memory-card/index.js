@@ -55,6 +55,7 @@ const memoryCard = () => {
 
 const handleClick = ($src, $alt) => {
   const imgElement = window.event.srcElement;
+
   if (imgElement.parentElement.classList.contains("-front")) {
     imgElement.setAttribute(
       "onClick",
@@ -69,3 +70,5 @@ const handleClick = ($src, $alt) => {
     imgElement.parentElement.classList.toggle("-front");
   }
 };
+
+// Aula 29 será realizado a troca para no handleClick receber os cards e comparar
