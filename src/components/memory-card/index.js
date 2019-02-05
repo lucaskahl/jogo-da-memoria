@@ -1,3 +1,5 @@
+let firstCard, secondCard;
+
 const memoryCard = () => {
   const $head = document.querySelector("head");
   const $style = document.createElement("style");
@@ -79,8 +81,19 @@ const memoryCard = () => {
 };
 
 const handleClick = $component => {
-  if (qtdActiveMemoryCard < 2) {
+  if (qtdActiveMemoryCard == 0) {
+    firstCard = $component.children[0].children;
+    console.log(firstCard);
     $component.classList.toggle("-active");
+  } else if (qtdActiveMemoryCard < 2) {
+    $component.classList.toggle("-active");
+    secondCard = $component.children[0].children;
+  }
+
+  if (firstCard == secondCard) {
+    console.log("Hi", firstCard);
+  } else {
+    console.log("as", secondCard);
   }
 
   if (qtdActiveMemoryCard === 1) {
