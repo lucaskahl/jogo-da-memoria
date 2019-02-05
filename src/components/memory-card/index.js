@@ -79,19 +79,20 @@ const memoryCard = () => {
 };
 
 const handleClick = $component => {
-  $component.classList.toggle("-active");
-
-  if ($component.classList.contains("-active")) {
-    counter++;
+  if (qtdActiveMemoryCard < 2) {
+    $component.classList.toggle("-active");
   }
 
-  if (counter === 2) {
-    let clickedCards = document.querySelectorAll(".-active");
+  if (qtdActiveMemoryCard === 1) {
     setTimeout(() => {
-      clickedCards.forEach(c => c.classList.toggle("-active"));
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
+
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.remove("-active");
+      });
+      qtdActiveMemoryCard = 0;
     }, 1000);
-    counter = 0;
   }
 };
-
-// Aula 29 será realizado a troca para no handleClick receber os cards e comparar
