@@ -81,31 +81,49 @@ const memoryCard = () => {
 };
 
 const handleClick = $component => {
-  if (qtdActiveMemoryCard == 0) {
-    firstCard = $component.children[0].children;
-    console.log(firstCard);
+  if (firstCard == null) {
+    firstCard = $component.children[0].children[0];
     $component.classList.toggle("-active");
-  } else if (qtdActiveMemoryCard < 2) {
+  } else if (qtdActiveMemoryCard < 10) {
+    secondCard = $component.children[0].children[0];
     $component.classList.toggle("-active");
-    secondCard = $component.children[0].children;
   }
 
-  if (firstCard == secondCard) {
-    console.log("Hi", firstCard);
-  } else {
-    console.log("as", secondCard);
-  }
-
-  if (qtdActiveMemoryCard === 1) {
-    setTimeout(() => {
-      const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
-      );
-
-      $activeMemoryCards.forEach($memoryCard => {
-        $memoryCard.classList.remove("-active");
-      });
+  if (secondCard != null && firstCard != null) {
+    if (firstCard.isEqualNode(secondCard)) {
+      firstCard = null;
+      secondCard = null;
       qtdActiveMemoryCard = 0;
-    }, 1000);
+      console.log("acertou");
+    } else {
+      firstCard = null;
+      secondCard = null;
+      qtdActiveMemoryCard = 0;
+      console.log("errou");
+      setTimeout(() => {
+        const $activeMemoryCards = document.querySelectorAll(
+          ".memory-card.-active"
+        );
+
+        $activeMemoryCards.forEach($memoryCard => {
+          $memoryCard.classList.remove("-active");
+        });
+        qtdActiveMemoryCard = 0;
+      }, 1000);
+    }
+    // if (!firstCard.isEqualNode(secondCard)) {
+    //   setTimeout(() => {
+    //     const $activeMemoryCards = document.querySelectorAll(
+    //       ".memory-card.-active"
+    //     );
+
+    //     $activeMemoryCards.forEach($memoryCard => {
+    //       $memoryCard.classList.remove("-active");
+    //     });
+    //     qtdActiveMemoryCard = 0;
+    //   }, 1000);
+    // } else if (qtdActiveMemoryCard === 2 && firstCard.isEqualNode(secondCard)) {
+    //   console.log("oi", $component.children[0].children[0]);
+    // }
   }
 };
