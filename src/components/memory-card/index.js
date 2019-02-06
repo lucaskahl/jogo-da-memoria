@@ -81,49 +81,51 @@ const memoryCard = () => {
 };
 
 const handleClick = $component => {
-  if (firstCard == null) {
-    firstCard = $component.children[0].children[0];
-    $component.classList.toggle("-active");
-  } else if (qtdActiveMemoryCard < 10) {
-    secondCard = $component.children[0].children[0];
-    $component.classList.toggle("-active");
-  }
-
-  if (secondCard != null && firstCard != null) {
-    if (firstCard.isEqualNode(secondCard)) {
-      firstCard = null;
-      secondCard = null;
-      qtdActiveMemoryCard = 0;
-      console.log("acertou");
-    } else {
-      firstCard = null;
-      secondCard = null;
-      qtdActiveMemoryCard = 0;
-      console.log("errou");
-      setTimeout(() => {
-        const $activeMemoryCards = document.querySelectorAll(
-          ".memory-card.-active"
-        );
-
-        $activeMemoryCards.forEach($memoryCard => {
-          $memoryCard.classList.remove("-active");
-        });
-        qtdActiveMemoryCard = 0;
-      }, 1000);
+  if (!$component.classList.contains("-active")) {
+    if (firstCard == null) {
+      firstCard = $component.children[0].children[0];
+      $component.classList.toggle("-active");
+    } else if (qtdActiveMemoryCard < 10) {
+      secondCard = $component.children[0].children[0];
+      $component.classList.toggle("-active");
     }
-    // if (!firstCard.isEqualNode(secondCard)) {
-    //   setTimeout(() => {
-    //     const $activeMemoryCards = document.querySelectorAll(
-    //       ".memory-card.-active"
-    //     );
 
-    //     $activeMemoryCards.forEach($memoryCard => {
-    //       $memoryCard.classList.remove("-active");
-    //     });
-    //     qtdActiveMemoryCard = 0;
-    //   }, 1000);
-    // } else if (qtdActiveMemoryCard === 2 && firstCard.isEqualNode(secondCard)) {
-    //   console.log("oi", $component.children[0].children[0]);
-    // }
+    if (secondCard != null && firstCard != null) {
+      if (firstCard.isEqualNode(secondCard)) {
+        firstCard = null;
+        secondCard = null;
+        qtdActiveMemoryCard = 0;
+        console.log("acertou");
+      } else {
+        firstCard = null;
+        secondCard = null;
+        qtdActiveMemoryCard = 0;
+        console.log("errou");
+        setTimeout(() => {
+          const $activeMemoryCards = document.querySelectorAll(
+            ".memory-card.-active"
+          );
+
+          $activeMemoryCards.forEach($memoryCard => {
+            $memoryCard.classList.remove("-active");
+          });
+          qtdActiveMemoryCard = 0;
+        }, 1000);
+      }
+      // if (!firstCard.isEqualNode(secondCard)) {
+      //   setTimeout(() => {
+      //     const $activeMemoryCards = document.querySelectorAll(
+      //       ".memory-card.-active"
+      //     );
+
+      //     $activeMemoryCards.forEach($memoryCard => {
+      //       $memoryCard.classList.remove("-active");
+      //     });
+      //     qtdActiveMemoryCard = 0;
+      //   }, 1000);
+      // } else if (qtdActiveMemoryCard === 2 && firstCard.isEqualNode(secondCard)) {
+      //   console.log("oi", $component.children[0].children[0]);
+      // }
+    }
   }
 };
