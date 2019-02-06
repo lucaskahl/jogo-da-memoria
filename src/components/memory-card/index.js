@@ -1,5 +1,3 @@
-let firstCard, secondCard;
-
 const memoryCard = () => {
   const $head = document.querySelector("head");
   const $style = document.createElement("style");
@@ -82,15 +80,18 @@ const memoryCard = () => {
     `;
 };
 
-let score = 0;
+const getElements = $element => {
+  return document.querySelectorAll($element);
+};
+
 const handleClick = $component => {
   if (!$component.classList.contains("-active")) {
     if (qtdActiveMemoryCard < 2) {
-      $component.classList.toggle("-active");
+      $component.classList.add("-active");
     }
 
     if (qtdActiveMemoryCard === 1) {
-      const $memoryCards = document.querySelectorAll(".memory-card.-active");
+      const $memoryCards = getElements(".memory-card.-active");
       if (
         $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
         $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
@@ -103,9 +104,7 @@ const handleClick = $component => {
         });
       } else {
         setTimeout(() => {
-          const $activeMemoryCards = document.querySelectorAll(
-            ".memory-card.-active"
-          );
+          const $activeMemoryCards = getElements(".memory-card.-active");
           $activeMemoryCards.forEach($memoryCard => {
             $memoryCard.classList.remove("-active");
           });

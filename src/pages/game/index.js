@@ -1,7 +1,6 @@
 const $root = document.querySelector("#root");
 const $cardsWrapper = createCardsWrapper();
-var counter = 0;
-
+let score = 0;
 
 const createMemoryCard = memoryCard();
 
