@@ -1,43 +1,74 @@
-const $root = document.querySelector("#root");
-const $cardsWrapper = createCardsWrapper();
-let score = 0;
+(function() {
+  const $root = document.querySelector("#root");
+  const $cardsWrapper = createCardsWrapper();
 
-const createMemoryCard = memoryCard();
+  const createMemoryCard = memoryCard();
 
-const $memoryCard = createMemoryCard({
-  src: "img/icon-collabcode.svg",
-  alt: "Gueio mascote da CollabCode"
-});
+  const $memoryCard = createMemoryCard({
+    src: "img/icon-collabcode.svg",
+    alt: "Gueio mascote da CollabCode"
+  });
 
-const $cardPhp = createMemoryCard({
-  src: "img/icon-php.png",
-  alt: "Ícone de um livro de Php"
-});
+  const $cardBug = createMemoryCard({
+    src: "img/icon-bug.png",
+    alt: "Ícone do livro de bug"
+  });
 
-const $cardJava = createMemoryCard({
-  src: "img/icon-java.png",
-  alt: "Ícone de um livro de Java"
-});
+  const $cardCabeca = createMemoryCard({
+    src: "img/icon-cabeca.png",
+    alt: "Ícone do livro da Cabeca"
+  });
 
-const $cardJavaScript = createMemoryCard({
-  src: "img/icon-js.png",
-  alt: "Ícone de um livro de Javascript"
-});
+  const $cardCelular = createMemoryCard({
+    src: "img/icon-celular.png",
+    alt: "Ícone do livro de um Celular"
+  });
 
-const $cardC = createMemoryCard({
-  src: "img/icon-c.png",
-  alt: "Ícone de um livro de C"
-});
+  const $cardResponsivo = createMemoryCard({
+    src: "img/icon-Responsivo.png",
+    alt: "Ícone do livro de Responsivo"
+  });
 
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardJava);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardJava);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
-$cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
+  const $cardSettings = createMemoryCard({
+    src: "img/icon-settings.png",
+    alt: "Ícone do livro de settings"
+  });
 
-$root.insertAdjacentElement("beforeend", $cardsWrapper);
+  const $cardWoman = createMemoryCard({
+    src: "img/icon-woman.png",
+    alt: "Ícone do livro de Woman"
+  });
+
+  const $cardPhp = createMemoryCard({
+    src: "img/icon-php.png",
+    alt: "Ícone de um livro de Php"
+  });
+
+  const $cardJava = createMemoryCard({
+    src: "img/icon-java.png",
+    alt: "Ícone de um livro de Java"
+  });
+
+  const $cardJavaScript = createMemoryCard({
+    src: "img/icon-js.png",
+    alt: "Ícone de um livro de Javascript"
+  });
+
+  const $cardC = createMemoryCard({
+    src: "img/icon-c.png",
+    alt: "Ícone de um livro de C"
+  });
+
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardSettings);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardSettings);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
+  $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
+
+  $root.insertAdjacentElement("beforeend", $cardsWrapper);
+})(); // IIFE

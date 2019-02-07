@@ -80,37 +80,46 @@ const memoryCard = () => {
     `;
 };
 
-const getElements = $element => {
-  return document.querySelectorAll($element);
-};
-
 const handleClick = $component => {
   if (!$component.classList.contains("-active")) {
-    if (qtdActiveMemoryCard < 2) {
-      $component.classList.add("-active");
-    }
+    activeMemoryCard($component);
+    checkCard();
+  }
+};
 
-    if (qtdActiveMemoryCard === 1) {
-      const $memoryCards = getElements(".memory-card.-active");
-      if (
-        $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
-        $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
-      ) {
-        score++;
-        console.log(score);
-        $memoryCards.forEach($memoryCard => {
-          $memoryCard.classList.add("-score");
+const activeMemoryCard = $component => {
+  if (qtdActiveMemoryCard < 2) {
+    $component.classList.add("-active");
+  }
+};
+
+const checkCard = () => {
+  if (qtdActiveMemoryCard === 1) {
+    const $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active"
+    );
+    if (
+      $activeMemoryCards[0]
+        .querySelector(".-front .icon")
+        .getAttribute("src") ===
+      $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
+    ) {
+      store.score++;
+      console.log("Score: ", store.score);
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.add("-score");
+        $memoryCard.classList.remove("-active");
+      });
+    } else {
+      setTimeout(() => {
+        const $activeMemoryCards = document.querySelectorAll(
+          ".memory-card.-active"
+        );
+        $activeMemoryCards.forEach($memoryCard => {
           $memoryCard.classList.remove("-active");
         });
-      } else {
-        setTimeout(() => {
-          const $activeMemoryCards = getElements(".memory-card.-active");
-          $activeMemoryCards.forEach($memoryCard => {
-            $memoryCard.classList.remove("-active");
-          });
-          qtdActiveMemoryCard = 0;
-        }, 1000);
-      }
+        qtdActiveMemoryCard = 0;
+      }, 1000);
     }
   }
 };
