@@ -1,5 +1,3 @@
-let qtdActiveMemoryCard = 0;
-
 function createCardsWrapper() {
   const $cardsWrapper = document.createElement("section");
   $cardsWrapper.classList.add("cards-wrapper");
@@ -23,9 +21,11 @@ function createCardsWrapper() {
   $head.insertBefore($style, null);
 
   $cardsWrapper.addEventListener("click", () => {
-    qtdActiveMemoryCard = $cardsWrapper.querySelectorAll(".memory-card.-active")
-      .length;
+    store.qtdActiveMemoryCard = $cardsWrapper.querySelectorAll(
+      ".memory-card.-active"
+    ).length;
   });
 
   return $cardsWrapper;
 }
+// Não deve ser uma IIFE por que é chamada várias vezes no game para criar o card!
