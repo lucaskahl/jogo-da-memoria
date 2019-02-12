@@ -1,8 +1,11 @@
-const memoryCard = () => {
-  const $head = document.querySelector("head");
-  const $style = document.createElement("style");
+const memoryCard = (function() {
+  const module = {};
 
-  $style.textContent = `
+  module.create = () => {
+    const $head = document.querySelector("head");
+    const $style = document.createElement("style");
+
+    $style.textContent = `
 
   div {
     width: 155px;
@@ -58,10 +61,10 @@ const memoryCard = () => {
 
   `;
 
-  $head.insertBefore($style, null);
+    $head.insertBefore($style, null);
 
-  return ({ src, alt }) => `
-    <div class="memory-card" onClick="cardLogic.handleClick(this)">
+    return ({ src, alt }) => `
+    <div class="memory-card" onClick="memoryCard.handleClick(this)">
         <article class="card -front">
             <img 
                 src="${src}" 
@@ -78,20 +81,27 @@ const memoryCard = () => {
         </article>
       </div>
     `;
-};
+  };
 
-const cardLogic = (function() {
-  function activeMemoryCard($component) {
+  module.handleClick = $component => {
+    if (!$component.classList.contains("-active")) {
+      module._activeMemoryCard($component);
+      module._checkSure();
+    }
+  };
+
+  module._activeMemoryCard = $component => {
     if (store.qtdActiveMemoryCard < 2) {
       $component.classList.add("-active");
     }
-  }
+  };
 
-  function checkCard() {
+  module._checkSure = () => {
     if (store.qtdActiveMemoryCard === 1) {
       const $activeMemoryCards = document.querySelectorAll(
         ".memory-card.-active"
       );
+
       if (
         $activeMemoryCards[0]
           .querySelector(".-front .icon")
@@ -116,16 +126,12 @@ const cardLogic = (function() {
         }, 1000);
       }
     }
-  }
+  };
 
   return {
-    handleClick: function($component) {
-      if (!$component.classList.contains("-active")) {
-        activeMemoryCard($component);
-        checkCard();
-      }
-    }
+    create: module.create,
+    handleClick: module.handleClick
   };
 })();
 
-// Foi mantido o check card pois na minha lógica, game inicializa as coisas, wrapper cuida do card no todo e o memory-card cuida da sua prop. lógica.
+// é criado com modulos pois é uma versão mais segura!

@@ -28,4 +28,3 @@ function createCardsWrapper() {
 
   return $cardsWrapper;
 }
-// Não deve ser uma IIFE por que é chamada várias vezes no game para criar o card!
