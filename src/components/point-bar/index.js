@@ -24,18 +24,22 @@ const pointBar = (function() {
     $head.insertBefore($style, null);
   };
 
+  module.incrementListener = () => {
+    document.querySelector(".number").textContent = store.score;
+  };
+
   module.create = () => {
     module._style();
 
     return `
       <header class="point-bar">
-        <span class="number">1</span>
+        <span class="number">0</span>
       </header>
-    
     `;
   };
 
   return {
-    create: module.create
+    create: module.create,
+    listener: module.incrementListener
   };
 })();
