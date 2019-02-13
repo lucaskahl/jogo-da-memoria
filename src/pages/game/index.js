@@ -3,6 +3,7 @@
   const $cardsWrapper = createCardsWrapper();
 
   const createMemoryCard = memoryCard.create();
+  const $startButton = startButton.create();
   const $pointBar = pointBar.create();
 
   const $memoryCard = createMemoryCard({
@@ -72,5 +73,6 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
 
   $root.insertAdjacentHTML("beforebegin", $pointBar);
+  $root.insertAdjacentHTML("beforeend", $startButton);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })(); // IIFE
