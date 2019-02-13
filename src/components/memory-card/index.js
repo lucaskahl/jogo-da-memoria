@@ -7,13 +7,13 @@ const memoryCard = (function() {
 
     $style.textContent = `
 
-  div {
+  .memory-card {
     width: 155px;
     height: 155px;
     position: relative;
   }
 
-   .memory-card > .card {
+  .memory-card > .card {
     width: 100%;
     height: 100%;
     display: flex;

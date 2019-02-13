@@ -3,6 +3,7 @@
   const $cardsWrapper = createCardsWrapper();
 
   const createMemoryCard = memoryCard.create();
+  const $pointBar = pointBar.create();
 
   const $memoryCard = createMemoryCard({
     src: "img/icon-collabcode.svg",
@@ -70,5 +71,6 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
 
+  $root.insertAdjacentHTML("beforebegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })(); // IIFE
