@@ -13,10 +13,11 @@ const startButton = (function() {
         background-color: #FFF;
         border-radius: 50%;
         text-align: center;
-        z-index: 100;
+        z-index: 15;
         box-shadow: -2px 10px 5px -4px rgba(0,0,0,0.35);
-        right: 10px;
-        bottom: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
       }
       
       .start {
@@ -31,6 +32,15 @@ const startButton = (function() {
     $head.insertBefore($style, null);
   };
 
+  module.handleClick = () => {
+    console.log("cheguei");
+    let button = document.querySelector(".start-button");
+
+    button.addEventListener("click", () => {
+      console.log("clickado!!");
+    });
+  };
+
   module.create = () => {
     module._style();
 
@@ -41,6 +51,9 @@ const startButton = (function() {
     `;
   };
   return {
-    create: module.create
+    create: module.create,
+    handleClick: module.handleClick
   };
 })();
+
+startButton.handleClick();

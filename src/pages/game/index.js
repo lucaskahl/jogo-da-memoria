@@ -2,6 +2,7 @@
   const $root = document.querySelector("#root");
   const $cardsWrapper = createCardsWrapper();
 
+  const $layerWrapper = layerWrapper.create();
   const createMemoryCard = memoryCard.create();
   const $startButton = startButton.create();
   const $pointBar = pointBar.create();
@@ -66,12 +67,11 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardSettings);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
-  $cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardPhp);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
-  $cardsWrapper.insertAdjacentHTML("beforeend", $cardJavaScript);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
 
+  $root.insertAdjacentHTML("beforebegin", $layerWrapper);
   $root.insertAdjacentHTML("beforebegin", $pointBar);
   $root.insertAdjacentHTML("beforeend", $startButton);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
