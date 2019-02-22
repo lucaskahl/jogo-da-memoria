@@ -19,6 +19,7 @@ const startButton = (function() {
         transform: translateX(-50%);
         bottom: 20px;
         opacity: 100;
+        transition: all 1s linear;
       }
       
       .start {
