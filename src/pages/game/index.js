@@ -76,3 +76,5 @@
   $root.insertAdjacentHTML("beforeend", $startButton);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })(); // IIFE
+
+startButton.handleStart();

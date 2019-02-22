@@ -18,6 +18,7 @@ const startButton = (function() {
         left: 50%;
         transform: translateX(-50%);
         bottom: 20px;
+        opacity: 100;
       }
       
       .start {
@@ -27,17 +28,23 @@ const startButton = (function() {
         line-height: 50px;
       }
 
+      .start-button.-active {
+        z-index: 0;
+        opacity: 0;
+      }
+
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = () => {
-    console.log("cheguei");
+  module.handleStart = () => {
     let button = document.querySelector(".start-button");
+    let layer = document.querySelector(".layerWrapper");
 
     button.addEventListener("click", () => {
-      console.log("clickado!!");
+      button.classList.add("-active");
+      layer.classList.add("-active");
     });
   };
 
@@ -52,8 +59,6 @@ const startButton = (function() {
   };
   return {
     create: module.create,
-    handleClick: module.handleClick
+    handleStart: module.handleStart
   };
 })();
-
-startButton.handleClick();

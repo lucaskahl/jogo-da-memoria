@@ -14,6 +14,12 @@ const layerWrapper = (function() {
         z-index: 10;
         width: 100vw;
         height: 100vh;
+        opacity: 100;
+      }
+
+      .layerWrapper.-active {
+        z-index: 0;
+        opacity: 0;
       }
     `;
 
