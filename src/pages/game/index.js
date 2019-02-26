@@ -1,11 +1,11 @@
 (function() {
   const $root = document.querySelector("#root");
-  const $cardsWrapper = createCardsWrapper();
 
-  const $layerWrapper = layerWrapper.create();
+  const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = memoryCard.create();
-  const $startButton = startButton.create();
+
   const $pointBar = pointBar.create();
+  const $layerStart = layerStart.create("+");
 
   const $memoryCard = createMemoryCard({
     src: "img/icon-collabcode.svg",
@@ -71,10 +71,7 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardC);
   $cardsWrapper.insertAdjacentHTML("beforeend", $cardWoman);
 
-  $root.insertAdjacentHTML("beforebegin", $layerWrapper);
-  $root.insertAdjacentHTML("beforebegin", $pointBar);
-  $root.insertAdjacentHTML("beforeend", $startButton);
+  $root.insertAdjacentHTML("beforebegin", $layerStart);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentHTML("beforebegin", $pointBar);
 })(); // IIFE
-
-startButton.handleStart();

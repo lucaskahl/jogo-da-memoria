@@ -39,7 +39,7 @@ const startButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.handleStart = () => {
+  module.handleClick = () => {
     let button = document.querySelector(".start-button");
     let layer = document.querySelector(".layerWrapper");
 
@@ -49,17 +49,17 @@ const startButton = (function() {
     });
   };
 
-  module.create = () => {
+  module.create = content => {
     module._style();
 
     return `
-      <div class="start-button">
-        <span class="start">+</span>
+      <div onclick="startButton.handleClick()" class="start-button">
+        <span class="start">${content}</span>
       </div>
     `;
   };
   return {
     create: module.create,
-    handleStart: module.handleStart
+    handleClick: module.handleClick
   };
 })();
