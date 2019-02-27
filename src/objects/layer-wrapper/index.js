@@ -15,13 +15,12 @@ const layerWrapper = (function() {
         width: 100vw;
         height: 100vh;
         opacity: 100;
-        transition: all .8s linear;
+        transition: all 300ms 200ms linear;
       }
 
-      .layerWrapper.-active {
-        background-color: #000;
-        z-index: 0;
+      .layerWrapper.-disable {
         opacity: 0;
+        background-color: #badc58;
       }
     `;
 

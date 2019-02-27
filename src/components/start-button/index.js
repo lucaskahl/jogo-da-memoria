@@ -19,7 +19,8 @@ const startButton = (function() {
         transform: translateX(-50%);
         bottom: 20px;
         opacity: 100;
-        transition: all 1s linear;
+        transition: all 200ms linear;
+        transform-origin: 50% 50%;
       }
       
       .start {
@@ -29,9 +30,10 @@ const startButton = (function() {
         line-height: 50px;
       }
 
-      .start-button.-active {
-        z-index: 0;
+      .start-button.-disable {
         opacity: 0;
+        transform: scale(5);
+        
       }
 
     `;
@@ -39,21 +41,11 @@ const startButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = () => {
-    let button = document.querySelector(".start-button");
-    let layer = document.querySelector(".layerWrapper");
-
-    button.addEventListener("click", () => {
-      button.classList.add("-active");
-      layer.classList.add("-active");
-    });
-  };
-
   module.create = content => {
     module._style();
 
     return `
-      <div onclick="startButton.handleClick()" class="start-button">
+      <div class="start-button">
         <span class="start">${content}</span>
       </div>
     `;
