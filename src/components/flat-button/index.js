@@ -13,19 +13,22 @@ const flatButton = (function() {
       font-weight: bold;
       width: 186px;
       height: 176px;
-      border: none;
       text-transform: uppercase;
+    }
+
+    .flat-button.-active {
+      background-color: red;
     }
     `;
 
     $head.insertAdjacentElement("beforeend", $style);
   };
 
-  module.render = () => {
+  module.render = ($content, type) => {
     module._style();
 
     return `
-      <button class="flat-button">Log in</button>
+      <button class='flat-button ${type}'>${$content}</button>
     `;
   };
 

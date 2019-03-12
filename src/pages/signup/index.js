@@ -1,9 +1,9 @@
 (function() {
   const $root = document.querySelector("#root");
 
-  const $flatButton = flatButton.render();
-  const $flatButton2 = flatButton.render();
+  const $loginButton = flatButton.render("Log in");
+  const $sinUpButton = flatButton.render("Sign in", "-active");
 
-  $root.insertAdjacentHTML("beforeend", $flatButton);
-  $root.insertAdjacentHTML("beforeend", $flatButton2);
+  $root.insertAdjacentHTML("beforeend", $loginButton);
+  $root.insertAdjacentHTML("beforeend", $sinUpButton);
 })();
