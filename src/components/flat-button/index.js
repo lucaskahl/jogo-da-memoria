@@ -17,7 +17,7 @@ const flatButton = (function() {
     }
 
     .flat-button.-active {
-      background-color: red;
+      background-color: red; // desafio intermediario
     }
     `;
 
