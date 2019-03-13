@@ -10,7 +10,6 @@ const logo = (function() {
         display: block;
         width: 150px;
         margin: 0 auto;
-        
       }
     `;
 

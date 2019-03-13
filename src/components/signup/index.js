@@ -9,20 +9,25 @@ const signup = (function() {
 
     $style.textContent = `
       .signup {
-        
+        margin-top: -70px;
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
+  // position absolute o componente de baixo ( inputs subiriam.)
+
   module.render = () => {
     module._style();
 
     return `
-      <div class="signup">
-        ${$logo}
-        ${$title}
+      <div class="wrapper">
+        <div class="signup" >
+          ${$logo}
+          ${$title}
+        </div>
+        <p>Oi</p>
       </div>
     `;
   };
