@@ -1,13 +1,15 @@
-const signup = (function() {
+const logo = (function() {
   const module = {};
-  const $logo = logo.render();
 
   module._style = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .signup {
+      .logo {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
         
       }
     `;
@@ -19,9 +21,7 @@ const signup = (function() {
     module._style();
 
     return `
-      <div class="signup">
-        ${$logo}
-      </div>
+      <img class="logo" src="./img/icon-collabcode.svg"/>
     `;
   };
 
