@@ -1,29 +1,28 @@
-const signup = (function() {
+const title = (function() {
   const module = {};
-  const $logo = logo.render();
-  const $title = title.render("Welcome");
 
   module._style = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .signup {
-        
+      .title {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 25px;
+        color: #f25a70;
+        margin-top: 20px;
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.render = () => {
+  module.render = $content => {
     module._style();
 
     return `
-      <div class="signup">
-        ${$logo}
-        ${$title}
-      </div>
+      <h1 class="title">${$content}</h1>
     `;
   };
 
