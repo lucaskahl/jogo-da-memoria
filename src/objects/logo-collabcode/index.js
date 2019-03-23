@@ -1,4 +1,4 @@
-const logo = (function() {
+const logoCollabode = (function() {
   const module = {};
 
   module._style = () => {
@@ -6,11 +6,17 @@ const logo = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .logo {
-        display: block;
-        width: 150px;
-        margin: 0 auto;
+      .logo-collabcode {
+        background-color: #FFF;
+        display: inline-block;
+        border: solid 30px #FFF;
+        border-radius: 50%;
       }
+
+      .logo {
+        width: 150px;
+      }
+
     `;
 
     $head.insertBefore($style, null);
@@ -20,7 +26,9 @@ const logo = (function() {
     module._style();
 
     return `
-      <img class="logo" src="./img/icon-collabcode.svg"/>
+      <figure class="logo-collabcode">
+        <img class="logo" src="./img/icon-collabcode.svg"/>
+      </figure>
     `;
   };
 

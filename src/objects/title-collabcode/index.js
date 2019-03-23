@@ -1,4 +1,4 @@
-const title = (function() {
+const titleCollabcode = (function() {
   const module = {};
 
   module._style = () => {
@@ -7,11 +7,13 @@ const title = (function() {
 
     $style.textContent = `
       .title {
-        text-align: center;
+
         text-transform: uppercase;
-        font-size: 25px;
+        font-size: 24px;
         color: #f25a70;
         margin-top: 20px;
+
+        letter-spacing: 0.6px;
       }
     `;
 
