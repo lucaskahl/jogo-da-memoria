@@ -11,9 +11,9 @@ const titleCollabcode = (function() {
         text-transform: uppercase;
         font-size: 24px;
         color: #f25a70;
-        margin-top: 20px;
 
         letter-spacing: 0.6px;
+        transform: translateY(-40%);
       }
     `;
 
