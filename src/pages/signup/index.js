@@ -8,8 +8,10 @@
   const $titleCollabcode = titleCollabcode.render("Welcome");
 
   const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
+  const $inputForm = inputForm.render("Digite o seu email aqui");
 
   $root.insertAdjacentHTML("beforeend", $loginButton);
   $root.insertAdjacentHTML("beforeend", $signUpButton);
   $root.insertAdjacentHTML("beforeend", $logoWrapper);
+  $root.insertAdjacentHTML("beforeend", $inputForm);
 })();

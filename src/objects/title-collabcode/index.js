@@ -7,7 +7,6 @@ const titleCollabcode = (function() {
 
     $style.textContent = `
       .title {
-
         text-transform: uppercase;
         font-size: 24px;
         color: #f25a70;
