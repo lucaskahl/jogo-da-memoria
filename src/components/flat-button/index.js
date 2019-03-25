@@ -16,7 +16,7 @@ const flatButton = (function() {
       font-size: 24px;
       font-weight: bold;
       display: inline-block;
-      width: 49%;
+      width: 50%;
       padding-top: 60px;
       height: 176px;
       text-decoration: none;
@@ -32,9 +32,7 @@ const flatButton = (function() {
     module._id++;
     module._style(active);
 
-    return `
-      <a href="#" class='flat-button-${module._id}'>${$content}</a>
-    `;
+    return `<a href="#" class='flat-button-${module._id}'>${$content}</a>`;
   };
 
   return {
