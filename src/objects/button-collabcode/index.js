@@ -20,6 +20,7 @@ const buttonCollabcode = (function() {
         margin-top: 30px;
       }
     `;
+
     $head.insertBefore($style, null);
   };
 
